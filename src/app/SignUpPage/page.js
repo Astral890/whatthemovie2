@@ -21,20 +21,25 @@ export default function SignUpPage(){
           <div className="user-grid">
             <div className="user-card">
               <h1>Registrarse</h1>
-              <form onSubmit={handleSubmit}>
+              <form onSubmit={handleSubmit} className="">
                 <div className="user-inpbut">
                   <label>Name:</label>
+                  <br/>
                   <input type="text" value={name} onChange={(e) => setName(e.target.value)} required/>
                 </div>
                 <div className="user-inpbut">
                   <label>Email:</label>
+                  <br/>
                   <input type="email" value={correo} onChange={(e) => setCorreo(e.target.value)} required/>
                 </div>
                 <div className="user-inpbut">
                   <label>Password:</label>
+                  <br/>
                   <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required/>
                 </div>
-                <button type="submit">Registarse</button>
+                <button type="submit" className="px-6 py-2 text-lg font-semibold text-black 
+                bg-red-600 rounded-lg hover:bg-red-700 transition-colors duration-200 
+                text-center">Registarse</button>
               </form>
             </div>
           </div>
