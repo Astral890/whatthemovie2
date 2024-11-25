@@ -10,6 +10,7 @@ export default function PointsPage(){
           <h1>Puntos</h1>
             <div className="user-card">
                 <PointsCounter/>
+                <br/>
                 <Link 
                 href="/MainPage"
                 className="px-6 py-2 text-lg font-semibold text-black 

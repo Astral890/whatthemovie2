@@ -103,7 +103,7 @@ export default function GenrePage(){
       <div>
           <OptionButtons options={movies.map(movie => movie.title)} onOptionClick={handleOptionClick}></OptionButtons>
       </div>
-      {hasWon && <p>¡Ganaste!</p>}
+      {hasWon && <h2>¡Ganaste!</h2>}
     </div>
   );
 };
