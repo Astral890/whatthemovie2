@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, getDocs, addDoc, where, query } from "firebase/firestore";
+import { getFirestore, collection, getDocs, addDoc, where, query, updateDoc } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBPiTfYmPC7kAkOhdLHPtsbpS0hnik7h9I",
@@ -54,7 +54,44 @@ async function checkUsr(email,pass){
   }
 }
 
+async function getPoints(email) {
+  try {
+    console.log(email);
+    const q = query(collection(db, "UsrMovies"), where("email", "==", email));
+    const querySnapshot = await getDocs(q);
+
+    for (const doc of querySnapshot.docs) {
+      const userData = doc.data();
+        return userData.points;
+    }
+
+    alert("ta mal points");
+    return 0;
+  } catch (error) {
+    console.error("Error al comprobar usuario:", error);
+    return 0;
+  }
+}
+
+async function addPoints(email) {
+  try{
+    const newPoints=await getPoints(email)+5;
+    console.log(newPoints)
+    const q = query(collection(db, "UsrMovies"), where("email", "==", email));
+    const querySnapshot = await getDocs(q);
+    const userDoc = querySnapshot.docs[0];
+    console.log(userDoc);
+    await updateDoc(userDoc.ref, {
+      points: newPoints
+    });
+  }catch(e){
+    console.log(e);
+  }
+}
+
 export const methods={
   checkUsr,
-  addUsr
+  addUsr,
+  getPoints,
+  addPoints
 };

@@ -15,7 +15,7 @@ export default function LoginPage(){
         e.preventDefault();
         const ver=await auth.checkUsr(correo, password)
         if(ver){
-          setEmail(correo);
+          setEmail(correo)
             router.push('/MainPage');
         }else{
             console.log("ta mal el usr")
