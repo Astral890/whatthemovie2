@@ -33,7 +33,8 @@ export default function GenrePage(){
       }
       setMovies(m);
     } catch (error) {
-      console.error('Error al llamar a la API:', error);
+      //console.error('Error al llamar a la API:', error);
+      console.log("Aun no carga");
     }
   };
 
@@ -55,7 +56,8 @@ export default function GenrePage(){
       }
       setImages(im);
     } catch (error) {
-      console.error('Error al llamar a la API:', error);
+      //console.error('Error al llamar a la API:', error);
+      console.log("Aun no carga");
     }
   };
 
@@ -103,7 +105,6 @@ export default function GenrePage(){
       <div>
           <OptionButtons options={movies.map(movie => movie.title)} onOptionClick={handleOptionClick}></OptionButtons>
       </div>
-      {hasWon && <h2>¡Ganaste!</h2>}
     </div>
   );
 };

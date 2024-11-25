@@ -8,9 +8,7 @@ export default function MenuPage(){
     { name: 'Sci-Fi', image: 'scifi.png', number:878 },
     { name: 'Animated', image: 'scifi.png', number:16},
     { name: 'Comedy', image: 'scifi.png', number:35 },
-    { name: 'Horror', image: 'scifi.png', number:27 },
-    { name: 'Action', image: 'scifi.png', number:28 },
-    { name: 'Drama', image: 'scifi.png', number:18 }
+    { name: 'Horror', image: 'scifi.png', number:27 }
   ];
 
   return (
