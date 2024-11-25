@@ -1,5 +1,7 @@
+/* Import Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
+/* Custom Fonts */
 @font-face {
   font-family: 'Awakening';
   src: url('../app/fonts/AWAKENNING.ttf') format('truetype');
@@ -7,124 +9,103 @@
   font-style: normal;
 }
 
-.main-page {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  background-color: #121212;
-}
-
-/* Background effect */
-.background-film-effect {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  /*background-image: url('../assets/images/FilmEffect.jpg');*/
-  background-size: cover;
-  opacity: 0.2;
-  z-index: 1;
-}
-
-/* Movie image positions */
-.movie-image {
-  position: absolute;
-  width: 30vw;
-  height: 40vh;
-  object-fit: cover;
-  border-radius: 20px;
-  z-index: 2;
-}
-
-.image-left {
-  top: 50%;
-  left: 10%;
-  transform: translate(-50%, -50%) rotate(-10deg);
-}
-
-.image-top {
-  top: 20%;
-  left: 50%;
-  transform: translate(-50%, -50%) rotate(-5deg);
-}
-
-.image-right {
-  top: 50%;
-  right: 10%;
-  transform: translate(50%, -50%) rotate(10deg);
-}
-
-.image-bottom {
-  bottom: 20%;
-  left: 50%;
-  transform: translate(-50%, 50%) rotate(5deg);
-}
-
-/* Title card in the center */
-.title-card {
-  position: relative;
-  width: 524px;
-  height: 269px;
-  background: rgba(0, 0, 0, 0.4);
-  border-radius: 36px;
+/* Main Page Styles */
+.menu-page {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  z-index: 3;
-  backdrop-filter: blur(10px); 
+  justify-content: space-between; /* Space between content */
+  padding: 50px 0;
+  background-color: #121212;
+  background-image: url('/assets/filmtexture.png'); /* Background texture */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: #D8D8D8;
+  min-height: 100vh;
 }
 
-.title-text {
+/* Title */
+.title {
   font-family: 'Awakening', sans-serif;
   font-size: 48px;
   color: #930D0D;
+  font-weight: 700;
   text-transform: uppercase;
+  margin-bottom: 50px;
   text-align: center;
-  margin: 0;
 }
 
-.play-button {
-  margin-top: 20px;
-  width: 82px;
-  height: 82px;
-  border-radius: 26px;
-  /*background: url('../assets/images/RedGradient.jpg') no-repeat center center;*/
-  background-size: cover;
-  border: none;
+/* Genre Grid */
+.genre-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two cards per row */
+  gap: 50px; /* Increased space between cards */
+  justify-content: center; /* Center grid horizontally */
+  align-items: center; /* Center grid vertically */
+  margin: auto;
+  width: fit-content; /* Ensure proper centering */
+}
+
+/* Genre Card */
+.genre-card {
+  position: relative;
+  width: 350px; /* Slightly wider */
+  height: 200px; /* Slightly taller */
+  background-color: #1E1E1E;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
   cursor: pointer;
+  transition: transform 0.3s ease-in-out;
 }
 
-.play-button span {
-  color: #fff;
-  font-size: 40px;
+.genre-card:hover {
+  transform: scale(1.05); /* Slight zoom on hover */
 }
 
-.title-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
+/* Genre Image */
+.genre-card img {
   width: 100%;
   height: 100%;
-  filter: blur(33%);
-  background-size: cover;
-  opacity: 0.2;
+  object-fit: cover;
+  filter: grayscale(100%) contrast(1.2) brightness(0.9);
+  transition: filter 0.3s ease-in-out;
 }
 
-.title-card::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  /*background: url('../assets/images/NoiseEffect.jpg') no-repeat center center;*/
-  background-size: cover;
-  opacity: 0.2;
+.genre-card:hover img {
+  filter: grayscale(0); /* Remove grayscale on hover */
+}
+
+/* Start Button */
+.start-button {
+  margin-top: 40px;
+  padding: 15px 30px;
+  background-color: #930D0D;
+  border: none;
+  border-radius: 8px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 20px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.start-button:hover {
+  background-color: #FE5631;
+  transform: scale(1.05);
+}
+
+/* Footer */
+.footer {
+  margin-top: 50px;
+  text-align: center;
+  color: #D8D8D8;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 18px;
+}
+
+.footer-logo {
+  width: 100px; /* Adjust the logo size */
+  margin-top: 10px;
 }
