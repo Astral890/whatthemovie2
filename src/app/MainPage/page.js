@@ -17,6 +17,14 @@ export default function MenuPage(){
         {genres.map((genre, index) => (
           <GenreCard key={index} genre={genre.name} image={genre.image} number={genre.number} />
         ))}
+        <Link 
+              href="/PointsPage"
+              className="px-6 py-2 text-lg font-semibold text-black 
+              bg-red-600 rounded-lg hover:bg-red-700 transition-colors 
+              duration-200 text-center"
+            >
+              Puntos
+            </Link>
       </div>
     </div>
   );
