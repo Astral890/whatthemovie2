@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, getDocs, addDoc } from "firebase/firestore";
+import { getFirestore, collection, getDocs, addDoc, where, query } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBPiTfYmPC7kAkOhdLHPtsbpS0hnik7h9I",
@@ -27,26 +27,31 @@ async function addUsr(data){
 
 async function checkUsr(email,pass){
   try {
-    //const q = query(collection(db, "UsrMovies"), where("email", "==", email));
-    const querySnapshot = await getDocs(collection(db, "UsrMovies"), where("email", "==", email));
+    console.log(email);
+    console.log(pass);
+    const q = query(collection(db, "UsrMovies"), where("email", "==", email));
+    const querySnapshot = await getDocs(q);
+
     if (querySnapshot.empty) {
       console.log("no existe");
       return false;
     }
 
-    querySnapshot.forEach((doc) => {
+    for (const doc of querySnapshot.docs) {
       const userData = doc.data();
-      if (userData.password === pass) {
+      console.log(userData);
+      if (userData.pass === pass) {
+        console.log("ta bien negro");
         return true;
-      }else{
-        alert("ta mal")
       }
-    });
+    }
+
+    alert("ta mal");
+    return false;
   } catch (error) {
     console.error("Error al comprobar usuario:", error);
     return false;
   }
-  
 }
 
 export const methods={

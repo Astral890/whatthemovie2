@@ -2,17 +2,20 @@
 import { useRouter } from "next/navigation"; 
 import { methods as auth } from "../utilis/firebase";
 import { useState } from "react";
+import { useStore } from "../utilis/store";
 import '../styles/UserPages.css';
 
 export default function LoginPage(){
     const router = useRouter();
     const [correo, setCorreo] = useState("");
     const [password, setPassword] = useState("");
+    const setEmail = useStore((state) => state.setEmail);
 
     async function handleSubmit(e){
         e.preventDefault();
-        const ver=await auth.checkUsr({email:correo, pass:password})
+        const ver=await auth.checkUsr(correo, password)
         if(ver){
+          setEmail(correo);
             router.push('/MainPage');
         }else{
             console.log("ta mal el usr")
