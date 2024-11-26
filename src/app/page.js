@@ -12,17 +12,22 @@ export default function Home() {
   ];
 
   return (
-    <div className="main-page">
-      <div className="background-film-effect"></div>
+    <div className="menu-page">
+      <div className="image-grid-container">
 
-      {/* Image placements */}
       {movieImages.map((image, index) => (
-        <img key={index} src={image.src} alt={image.alt} className={`movie-image ${image.className}`} />
-      ))}
+          <img
+            key={index}
+            src={image.src}
+            alt={image.alt}
+            className={`movie-image`}
+          />
+        ))}
 
-      {/* Title card with play button */}
-      <TitleCard />
-      
+        <div className="title-card-overlay">
+          <TitleCard />
+        </div>
+      </div>
     </div>
   );
 }

@@ -39,12 +39,16 @@
 /* Genre Grid */
 .genre-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Two cards per row */
-  gap: 50px; /* Increased space between cards */
-  justify-content: center; /* Center grid horizontally */
-  align-items: center; /* Center grid vertically */
-  margin: auto;
-  width: fit-content; /* Ensure proper centering */
+  grid-template-areas:
+    "l1 top r1"
+    "left center right"
+    "l3 bottom r3";
+  grid-template-rows: 1fr auto 1fr;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 1px; /* Adjust spacing between elements */
+  justify-content: center;
+  align-items: center;
+  height: 100%; /* Full height to center elements */
 }
 
 /* Genre Card */
@@ -58,6 +62,42 @@
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
   cursor: pointer;
   transition: transform 0.3s ease-in-out;
+}
+
+/* Define image positions */
+.image-left {
+  grid-area: r3;
+}
+
+.image-top {
+  grid-area: l1;
+}
+
+.image-right {
+  grid-area: l3;
+}
+
+.image-bottom {
+  grid-area: r1;
+}
+
+.image-grid-container {
+  position: relative; /* Habilita la posición absoluta del TitleCard */
+  display: grid;
+  grid-template-rows: repeat(2, 1fr); /* Dos filas con igual altura */
+  grid-template-columns: repeat(2, 1fr); /* Dos columnas con igual ancho */
+  gap: 15px; /* Espacio entre las imágenes */
+  justify-content: center; /* Centra la cuadrícula horizontalmente */
+  align-items: center; /* Centra la cuadrícula verticalmente */
+  width: fit-content;
+  margin: auto; /* Centra el contenedor en la página */
+}
+
+.title-card-wrapper {
+  grid-area: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .genre-card:hover {
@@ -81,7 +121,6 @@
 .start-button {
   margin-top: 40px;
   padding: 15px 30px;
-  background-color: #930D0D;
   border: none;
   border-radius: 8px;
   font-family: 'Bebas Neue', sans-serif;
@@ -94,6 +133,31 @@
 .start-button:hover {
   background-color: #FE5631;
   transform: scale(1.05);
+}
+
+.image-container {
+  position: relative; /* Enables absolute positioning of TitleCard */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap; /* Wraps images into multiple rows if necessary */
+  gap: 10px; /* Adjust spacing between images */
+  width: fit-content;
+  margin: auto; /* Centers the container */
+}
+
+.title-card-overlay {
+  position: absolute; /* Positioned relative to the container */
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Adjust for centering */
+  z-index: 10; /* Ensure it appears above images */
+  background: rgba(0, 0, 0, 0.7); /* Optional: semi-transparent background */
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  color: white;
+  font-size: 24px; /* Adjust text size as needed */
 }
 
 /* Footer */
