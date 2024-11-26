@@ -4,18 +4,18 @@ import Link from 'next/link';
 
 // Array of genres with name, image, and route
 const genres = [
-  { name: 'Sci-Fi', image: '/assets/sci-fi.png', route: '/sci-fi' },
-  { name: 'Animated', image: '/assets/animated.png', route: '/animated' },
-  { name: 'Comedy', image: '/assets/comedy.png', route: '/comedy' },
-  { name: 'Horror', image: '/assets/horror.png', route: '/horror' },
+  { name: 'Sci-Fi', image: '/assets/sci-fi.png', number:878},
+  { name: 'Animated', image: '/assets/animated.png', number:16 },
+  { name: 'Comedy', image: '/assets/comedy.png', number:35},
+  { name: 'Horror', image: '/assets/horror.png', number:27},
 ];
 
 // Reusable GenreCard component
-const GenreCard = ({ genre }) => (
-  <Link href={genre.route}>
+const GenreCard = ({ genre, number, image }) => (
+  <Link href={{ pathname: '/GenrePage', query: { genre,number } }}>
     <div className="genre-card">
-      <img src={genre.image} alt={`${genre.name}`} />
-      <div className="genre-text">{genre.name}</div>
+      <img src={image} alt={`${genre}`} />
+      <div className="genre-text">{genre}</div>
     </div>
   </Link>
 );
@@ -26,7 +26,7 @@ const MenuPage = () => (
     <h1 className="title">Select Your Genre</h1>
     <div className="genre-grid">
       {genres.map((genre, index) => (
-        <GenreCard key={index} genre={genre} />
+        <GenreCard key={index} genre={genre.name} number={genre.number} image={genre.image} />
       ))}
     </div>
     <Link href="/PointsPage">

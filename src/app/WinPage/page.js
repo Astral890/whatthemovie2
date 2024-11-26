@@ -9,14 +9,7 @@ export default function WinPage(){
   const email = useStore((state) => state.email);
 
   useEffect(() => {
-    const fetchPoints = async () => {
-      if (email) {
-        const fetchedPoints = await methods.getPoints(email); 
-        setPoints(fetchedPoints);
-      }
-    }
     
-    fetchPoints();
     addPoints();
   }, [email]);
 

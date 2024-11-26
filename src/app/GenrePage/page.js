@@ -19,6 +19,7 @@ export default function GenrePage(){
   const [hasWon, setHasWon] = useState(false);
 
   const fetchMovies = async () => {
+    console.log(number);
     try {
       const response = await fetch("https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres="+number+"&api_key=ada074b6a5691631b70bfbcaf68ebad9");
       const data = await response.json();
