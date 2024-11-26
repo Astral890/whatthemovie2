@@ -16,7 +16,6 @@ export default function GenrePage(){
   
   const [movies, setMovies] = useState([]);
   const [images, setImages]=useState([]);
-  const [hasWon, setHasWon] = useState(false);
 
   const fetchMovies = async () => {
     console.log(number);
@@ -35,7 +34,7 @@ export default function GenrePage(){
       setMovies(m);
     } catch (error) {
       //console.error('Error al llamar a la API:', error);
-      console.log("Aun no carga");
+      //console.log("Aun no carga");
     }
   };
 
@@ -58,7 +57,7 @@ export default function GenrePage(){
       setImages(im);
     } catch (error) {
       //console.error('Error al llamar a la API:', error);
-      console.log("Aun no carga");
+      //console.log("Aun no carga");
     }
   };
 
@@ -66,7 +65,6 @@ export default function GenrePage(){
     console.log(option.option);
     console.log(win);
     if (option.option === win) {
-      setHasWon(true);
       router.push('/WinPage');
     } else {
       console.log("ta mal");
