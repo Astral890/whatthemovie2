@@ -68,6 +68,7 @@ export default function GenrePage(){
       router.push('/WinPage');
     } else {
       console.log("ta mal");
+      router.push('/LoosePage')
     }
   };
 
