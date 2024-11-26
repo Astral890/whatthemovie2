@@ -16,7 +16,7 @@
   align-items: center;
   padding-top: 50px;
   background-color: #121212;
-  background-image: url('/assets/filmtexture.png'); /* Background texture */
+  background-image: url('/assets/filmtexture.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -38,17 +38,17 @@
 /* Genre Grid */
 .genre-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Two cards per row */
-  gap: 40px; /* Space between cards */
-  width: 65%; /* Adjusted to center and match Figma */
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  width: 65%;
   justify-content: center;
 }
 
 /* Genre Card */
 .genre-card {
   position: relative;
-  width: 300px; /* Reduced size to match Figma */
-  height: 180px; /* Reduced size to match Figma */
+  width: 300px;
+  height: 180px; 
   background-color: #1E1E1E;
   border-radius: 10px;
   overflow: hidden;
@@ -58,7 +58,7 @@
 }
 
 .genre-card:hover {
-  transform: scale(1.05); /* Slight zoom on hover */
+  transform: scale(1.05);
 }
 
 /* Genre Image */
@@ -71,7 +71,7 @@
 }
 
 .genre-card:hover img {
-  filter: grayscale(0); /* Remove grayscale on hover */
+  filter: grayscale(0);
 }
 
 
@@ -83,7 +83,7 @@
   border: none;
   border-radius: 8px;
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 20px; /* Standard size */
+  font-size: 20px;
   color: white;
   cursor: pointer;
   transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;

@@ -25,9 +25,11 @@ const MenuPage = () => (
   <div className="menu-page">
     <h1 className="title">Select Your Genre</h1>
     <div className="genre-grid">
-      {genres.map((genre, index) => (
-        <GenreCard key={index} genre={genre.name} number={genre.number} image={genre.image} />
-      ))}
+        {genres.map((genre, index) => (
+          <div className='genre-card'>
+            <GenreCard key={index} genre={genre.name} number={genre.number} image={genre.image} />
+          </div>
+        ))}
     </div>
     <Link href="/PointsPage">
       <button className="start-button">Puntos</button>
